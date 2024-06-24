@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Article Prediction</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center mb-5">News Article Prediction</h1>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <form method="post" action="{% url 'predictor' %}">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="news-article" class="d-block">Enter your news article:</label>
+            <textarea name="text" id="news-article" rows="10" class="form-control"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-lg">
+            Predict
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

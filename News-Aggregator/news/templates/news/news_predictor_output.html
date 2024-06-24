@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px; /* Adjusted for better readability */
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #result-container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            text-align: left; /* Adjusted for better readability */
+        }
+
+        #result-text {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        #confidence-level {
+            display: inline-block;
+            width: 100%;
+            height: 20px;
+            border-radius: 10px;
+            background-color: #ddd;
+            overflow: hidden; /* Added for rounded corners */
+            margin-top: 10px; /* Adjusted for spacing */
+        }
+
+        .confidence-level-bar {
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .news-article {
+            margin-top: 30px; /* Adjusted for spacing */
+            text-align: left;
+        }
+
+        .news-content {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            max-height: 400px;
+            overflow: auto;
+        }
+
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fake News Detector</h1>
+        <div id="result-container">
+            <p id="result-text">This news is {{ news }}</p>
+            <div id="confidence-level">
+                <div class="confidence-level-bar" style="width: {{ confp }}%; background-color: {{ background }};"></div>
+            </div>
+            <div class="news-article">
+                <h2>News Article</h2>
+                <div class="news-content">{{ text }}</div>
+                <button class="button" onclick="expandContent()">Read More</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script>
+        // Dummy data for demonstration
+        // const confidenceLevel = {{ confidence_level }}
+        // const result = "{{ news_result }}";
+        // console.log(confidenceLevel)
+        // console.log(result)
+        // // Update UI with result
+        // document.getElementById('result-text').innerText = `This news is ${news}`;
+        // const confidenceLevelBar = document.getElementById('confidence-level');
+        // confidenceLevelBar.innerHTML = `<div class="confidence-level-bar" style="width: ${conf * 25}%; background-color: ${conf < 3 ? '#ff5555' : '#55aa55'};"></div>`;
+    </script> -->
+
+    <script>
+        function expandContent() {
+            var content = document.querySelector('.news-content');
+            var button = document.querySelector('.button');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                button.innerHTML = "Read More";
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                button.innerHTML = "Read Less";
+            }
+        }
+    </script>
+</body>
+</html>
