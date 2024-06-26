@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo "BUILD START"
-
+python -m ensurepip
+python -m pip install --upgrade pip
 # Install dependencies
 python3.9 -m pip install -r requirements.txt
 cd News-Aggregator
