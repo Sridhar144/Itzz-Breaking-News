@@ -5,7 +5,7 @@ from joblib import load
 import re
 import string
 # from sklearn.feature_extraction.text import TfidfVectorizer
-data='C:/Users/Admin/Desktop/Web_Develop/NewsOrion/Notebooks/data.csv'
+data='D:/Desktop_Prev_lappy/Web_Develop/Itzz-Breaking-News/Notebooks/data.csv'
 df = pd.read_csv(data)
 
 # Extract the 'text' column as a pandas Series
@@ -21,14 +21,14 @@ vectorization = TfidfVectorizer()
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.124582201)
 xv_train = vectorization.fit_transform(x_train)
 
-random_forest = load('C:/Users/Admin/Desktop/Web_Develop/NewsOrion/Notebooks/News-predictor.joblib')
-LR = load('C:/Users/Admin/Desktop/Web_Develop/NewsOrion/Notebooks/News-predictor_LR.joblib')
-DT = load('C:/Users/Admin/Desktop/Web_Develop/NewsOrion/Notebooks/News-predictor_DT.joblib')
-gb = load('C:/Users/Admin/Desktop/Web_Develop/NewsOrion/Notebooks/News-predictor_GB.joblib')
+random_forest = load('D:/Desktop_Prev_lappy/Web_Develop/Itzz-Breaking-News/Notebooks/News-predictor.joblib')
+LR = load('D:/Desktop_Prev_lappy/Web_Develop/Itzz-Breaking-News/Notebooks/News-predictor_LR.joblib')
+DT = load('D:/Desktop_Prev_lappy/Web_Develop/Itzz-Breaking-News/Notebooks/News-predictor_DT.joblib')
+gb = load('D:/Desktop_Prev_lappy/Web_Develop/Itzz-Breaking-News/Notebooks/News-predictor_GB.joblib')
 def manual_testing(news):#ml tokenization vectorization work
     # vector = load('C:/Users/Admin/Desktop/Web_Develop/NewsOrion/Notebooks/vectorization.joblib')
 
-    vector = load('C:/Users/Admin/Desktop/Web_Develop/NewsOrion/Notebooks/vectorization_temp.joblib')
+    vector = load('D:/Desktop_Prev_lappy/Web_Develop/Itzz-Breaking-News/Notebooks/vectorization_temp.joblib')
 
     testing_news = {"text":[news]}
     new_def_test = pd.DataFrame(testing_news)

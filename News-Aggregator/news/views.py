@@ -9,12 +9,12 @@ from .ml_functions import manual_testing
 from joblib import load
 
 
-random_forest = load('C:/Users/Admin/Desktop/Web_Develop/NewsOrion/Notebooks/News-predictor.joblib')
+random_forest = load('D:/Desktop_Prev_lappy/Web_Develop/Itzz-Breaking-News/Notebooks/News-predictor.joblib')
 
 def predictor(request):
     if request.method == 'POST':
         text = request.POST['text']
-        # Perform required tasks with the text input
+        # Perform required tasdataks with the text input
         # ...
         # text=float(text)
         # print(type(text))
@@ -89,8 +89,20 @@ def scrape(request, name):
     content = session.get(url).content
     soup = BSoup(content, "html.parser")
 
-    News = soup.find_all("div", {"class": "sc-cw4lnv-13 hHSpAQ"})
-
+    News = soup.find_all("div", {"class": "sc-cw4lnv-5 dYIPCV"})
+    img_div=soup.find_all("div", {"class": "sc-1xh12qx-2 ghaClB"})
+    # print(News)
+    imgx=[]
+    i=0
+    for every in img_div:
+        if every.find("img"):
+            imgx.append(every.find("img")["data-src"])
+            print(imgx[i])
+            print("found")
+        else:
+            print("notfound")
+        i=i+1
+    i=0
     for article in News:
         main = article.find_all("a", href=True)
 
@@ -99,24 +111,25 @@ def scrape(request, name):
 
         titlex = article.find("h2", {"class": "sc-759qgu-0 cvZkKd sc-cw4lnv-6 TLSoz"})
         title = titlex.text
-
-        imgx = article.find("img")["data-src"]
+        # imgx=""
+        # if article.find("img"):
+        #     imgx = article.find("img")["data-src"]
 
         new_headline = Headline()
         new_headline.title = title
         new_headline.url = link
-        new_headline.image = imgx
+        new_headline.image = imgx[i]
         new_headline.save()
+        i=i+1
     return redirect("../")
-
 
 def news_list(request):
     headlines = Headline.objects.all()[::-1]
     context = {
         "object_list": headlines,
     }
-    for con in headlines:
-        print(con)
+    # for con in headlines:
+        # print(con)
     return render(request, "news/home.html", context)
 
 

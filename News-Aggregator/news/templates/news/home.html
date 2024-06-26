@@ -149,21 +149,21 @@
                 <div class="mb-2">
                   <!-- Facebook Button -->
                   <button class="badge badge-primary text-dark p-1">
-                    {% post_to_facebook object_or_url "Facebook" %}
+                    {% post_to_facebook object.url "Facebook" %}
                   </button>
                 </div>
 
                 <div class="mb-2">
                   <!-- Whatsapp Button -->
                   <button class="badge badge-primary text-black p-1">
-                    {% post_to_whatsapp object_or_url "Whatsapp" %}
+                    {% post_to_whatsapp object.url "Whatsapp" %}
                   </button>
                 </div>
 
                 <div class="mb-2">
                   <!-- Telegram Button -->
                   <button class="badge badge-primary text-dark p-1">
-                    {% post_to_telegram "New News: " object_or_url "Telegram" %}
+                    {% post_to_telegram "New News: " object.url "Telegram" %}
                   </button>
                 </div>
               </div>
