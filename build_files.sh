@@ -3,10 +3,6 @@
 echo "BUILD START"
 python3.9 -m ensurepip
 python3.9 -m pip install --upgrade pip
-apt-get update && apt-get install -y \
-    build-essential \
-    default-libmysqlclient-dev \
-    libmariadb-dev
 
 # Install dependencies
 python3.9 -m pip install -r requirements.txt
