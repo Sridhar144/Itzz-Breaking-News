@@ -130,7 +130,7 @@ def news_list(request):
     }
     # for con in headlines:
         # print(con)
-    return render(request, "news/home.html", context)
+    return render(request, "news/index.html", context)
 
 
 

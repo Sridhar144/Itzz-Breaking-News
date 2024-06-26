@@ -26,7 +26,7 @@ SECRET_KEY = 'xe4hmfwal+58e7@8u@&g^x2xsow_hyv7%m3wmk^o4u(%+!73cw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
 
 
 # Application definition
@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'NewsAggregator.urls'
+ROOT_URLCONF = 'News-Aggregator.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'NewsAggregator.wsgi.application'
+WSGI_APPLICATION = 'News-Aggregator.wsgi.application'
 
 
 # Database
