@@ -6,7 +6,7 @@ python3.9 -m pip install --upgrade pip
 
 # Install dependencies
 python3.9 -m pip install -r requirements.txt
-cd News-Aggregator
+cd News-Aggregator/
 
 # Collect static files
 python3.9 manage.py collectstatic --noinput --clear --settings=News-Aggregator.settings
