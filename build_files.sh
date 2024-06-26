@@ -1,5 +1,16 @@
+#!/bin/bash
 
-echo " BUILD START"
-python3.9  -m pip install -r requirements.txt
-python3.9 manage.py collectstatic  --noinput --clear
-echo " BUILD END"
+echo "BUILD START"
+cd News-Aggregator
+
+# Install dependencies
+python3.9 -m pip install -r ../requirements.txt
+
+# Collect static files
+python3.9 manage.py collectstatic --noinput --clear --settings=News-Aggregator.settings
+
+# Move the collected static files to the correct directory
+mkdir -p ../staticfiles_build
+cp -r static/* ../staticfiles_build/
+
+echo "BUILD END"
